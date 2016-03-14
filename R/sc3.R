@@ -59,7 +59,6 @@
 #' @importFrom doRNG %dorng%
 #' @importFrom foreach foreach %dopar%
 #' @importFrom cluster silhouette
-#' @importFrom RSelenium startServer
 #' @importFrom parallel makeCluster detectCores stopCluster
 #' @importFrom doParallel registerDoParallel
 #' @importFrom utils head write.table setTxtProgressBar txtProgressBar combn
@@ -89,15 +88,6 @@ sc3 <- function(filename,
     set.seed(seed)
     distances <- c("euclidean", "pearson", "spearman")
     dimensionality.reductions <- c("PCA", "Spectral")
-    if(file.exists(paste0(file.path(find.package("RSelenium"),
-                                    "bin/selenium-server-standalone.jar")))) {
-        RSelenium::startServer(args=paste("-log", tempfile()), log=FALSE)
-        rselenium.installed <- TRUE
-    } else {
-        rselenium.installed <- FALSE
-    }
-    on.exit(stopSeleniumServer())
-
     # get input data
     dataset <- get_data(filename)
 
@@ -301,11 +291,5 @@ sc3 <- function(filename,
                          chisq.quantile = chisq.quantile,
                          rselenium.installed = rselenium.installed)
 
-    if(interactivity) {
-        # start a shiny app in a browser window
-        sc3_interactive(output.param)
-    } else {
-        sc3.interactive.arg <- list()
-        sc3.interactive.arg <<- output.param
-    }
+    return(out.param)
 }
