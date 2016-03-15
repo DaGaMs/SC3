@@ -6,8 +6,8 @@ Date: 2016-03-07
 Authors@R: person("Vladimir", "Kiselev", email = "vladimir.yu.kiselev@gmail.com", role = c("aut", "cre"))
 Description: Interactive tool for clustering and analysis of single cell RNA-Seq data.
 License: GPL-3
-Imports: graphics, stats, utils, methods, RSelenium, e1071, parallel, foreach,
-          doParallel, doRNG, shiny, ggplot2, pheatmap (>= 1.0.8), RColorBrewer, colorspace,
+Imports: graphics, stats, utils, methods, e1071, parallel, foreach,
+          doParallel, doRNG, ggplot2, pheatmap (>= 1.0.8), RColorBrewer, colorspace,
           ROCR, robustbase, rrcov, cluster, WriteXLS
 Depends: R(>= 3.3)
 LazyData: TRUE
