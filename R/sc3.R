@@ -276,5 +276,5 @@ sc3 <- function(filename,
                          show.original.labels = show.original.labels,
                          chisq.quantile = chisq.quantile)
 
-    return(out.param)
+    return(output.param)
 }
