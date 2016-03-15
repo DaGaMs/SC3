@@ -229,8 +229,8 @@ sc3 <- function(filename,
     cat("Computing consensus matrix and labels...\n")
     
     # BSB hack: just do one consensus matrix not all of them
-    all.combinations <- cbind(paste(1:length(distances), collapse = " "),
-                              paste(1:length(dimensionality.reductions), collapse = " "),
+    all.combinations <- cbind(paste(distances, collapse = " "),
+                              paste(dimensionality.reductions, collapse = " "),
                               as.numeric(ks))
     
     # run consensus clustering in parallel
