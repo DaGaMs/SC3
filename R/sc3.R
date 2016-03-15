@@ -231,7 +231,7 @@ sc3 <- function(filename,
     # BSB hack: just do one consensus matrix not all of them
     all.combinations <- cbind(paste(1:length(distances), collapse = " "),
                               paste(1:length(dimensionality.reductions), collapse = " "),
-                              as.numeric(ks)))
+                              as.numeric(ks))
     
     # run consensus clustering in parallel
     cons <- foreach::foreach(i = 1:dim(all.combinations)[1]) %dorng% {
